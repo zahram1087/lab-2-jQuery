@@ -19,8 +19,11 @@ Horns.prototype.render = function (){
   $hornClone.html($hornHtml);
 
   $hornClone.find('h2').text(this.title);
+  $hornClone.find('h2').attr('keyword', this.keyword);
   $hornClone.find('img').attr('src', this.image_url);
+  $hornClone.find('img').attr('keyword', this.keyword);
   $hornClone.find('p').text(this.description);
+  $hornClone.find('p').attr('keyword', this.keyword);
   $hornClone.removeClass('clone');
   $hornClone.addClass(this.title);
 
@@ -40,5 +43,22 @@ Horns.readJson = () =>{
 Horns.loadHorns = () => {
   Horns.allHorns.forEach(horn => horn.render());
 }
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Filter by Keyword
+
+$(`select[name = "keyword"]`).on('change', function(){
+  let $selection = $(this).val();
+  $('img').hide();
+  $('p').hide();
+  $('h2').hide();
+  $(`img[keyword = "${$selection}"]`).show();
+  $(`h2[keyword = "${$selection}"]`).show();
+  $(`p[keyword = "${$selection}"]`).show();
+  
+})
+
 
 $(() => Horns.readJson());
