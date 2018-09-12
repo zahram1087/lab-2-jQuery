@@ -1,6 +1,6 @@
 'use strict';
 
-function Horns(hornObject){
+function Horns(hornObject) {
   this.image_url = hornObject.image_url;
   this.title = hornObject.title;
   this.description = hornObject.description;
@@ -10,7 +10,7 @@ function Horns(hornObject){
 
 Horns.allHorns = [];
 
-Horns.prototype.render = function (){
+Horns.prototype.render = function () {
   $(`main`).append('<section class = "clone"></section>');
   const $hornClone = $('section[class= "clone"]');
 
@@ -29,14 +29,17 @@ Horns.prototype.render = function (){
 
 }
 
-Horns.readJson = () =>{
+
+Horns.readJson = () => {
   $.get('data/page-1.json')
     .then(data => {
       data.forEach(horn => {
-        Horns.allHorns.push( new Horns(horn));
+        Horns.allHorns.push(new Horns(horn));
       })
-    },'json')
-    .then (Horns.loadHorns)
+    }, 'json')
+    .then(Horns.loadHorns)
+    .then(Horns.dropdown)
+    // .then(Horns.dropdownFilter)
 
 }
 
@@ -44,12 +47,50 @@ Horns.loadHorns = () => {
   Horns.allHorns.forEach(horn => horn.render());
 }
 
+// Horns.dropdownFilter = function () {
+//   const repeatedItems = [];
+//   console.log(repeatedItems);
+//   const notRepeatedItems = -1
+
+//   Horns.allHorns.forEach(function(idx) {
+//     console.log(idx.keyword)
+//     if(repeatedItems.indexOf(idx.keyword === notRepeatedItems)) {
+//       repeatedItems.push(idx.keyword)
+//     }
+//     console.log(repeatedItems);
+//   })
+
+
+// }
+
+
+Horns.dropdown = function () {
+  //function that populates filters
+  //function that creats filters
+  const repeatedItems = [];
+  console.log(repeatedItems);
+  const notRepeatedItems = -1
+
+  Horns.allHorns.forEach(function(idx) {
+    console.log(idx.keyword)
+    if(repeatedItems.indexOf(idx.keyword === notRepeatedItems)) {
+      repeatedItems.push(idx.keyword);
+    }
+    console.log(repeatedItems);
+  })
+
+  Horns.allHorns.forEach(idx => {
+    let options = $(`select`).append(`<option value = "${idx.keyword}">${idx.keyword}</option>`);
+
+  })
+}
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Filter by Keyword
 
-$(`select[name = "keyword"]`).on('change', function(){
+$(`select[name = "keyword"]`).on('change', function () {
   let $selection = $(this).val();
   $('img').hide();
   $('p').hide();
@@ -57,7 +98,7 @@ $(`select[name = "keyword"]`).on('change', function(){
   $(`img[keyword = "${$selection}"]`).show();
   $(`h2[keyword = "${$selection}"]`).show();
   $(`p[keyword = "${$selection}"]`).show();
-  
+
 })
 
 
