@@ -38,8 +38,8 @@ Horns.readJson = () => {
       })
     }, 'json')
     .then(Horns.loadHorns)
-    .then(Horns.dropdown)
-    // .then(Horns.dropdownFilter)
+    .then(dropdown)
+  // .then(Horns.dropdownFilter)
 
 }
 
@@ -47,43 +47,22 @@ Horns.loadHorns = () => {
   Horns.allHorns.forEach(horn => horn.render());
 }
 
-// Horns.dropdownFilter = function () {
-//   const repeatedItems = [];
-//   console.log(repeatedItems);
-//   const notRepeatedItems = -1
 
-//   Horns.allHorns.forEach(function(idx) {
-//     console.log(idx.keyword)
-//     if(repeatedItems.indexOf(idx.keyword === notRepeatedItems)) {
-//       repeatedItems.push(idx.keyword)
-//     }
-//     console.log(repeatedItems);
-//   })
-
-
-// }
-
-
-Horns.dropdown = function () {
+const dropdown = function () {
   //function that populates filters
   //function that creats filters
   const repeatedItems = [];
-  console.log(repeatedItems);
-  const notRepeatedItems = -1
-
-  Horns.allHorns.forEach(function(idx) {
-    console.log(idx.keyword)
-    if(repeatedItems.indexOf(idx.keyword === notRepeatedItems)) {
-      repeatedItems.push(idx.keyword);
+  Horns.allHorns.forEach(function (ele) {
+    if (!repeatedItems.includes(ele.keyword)) {
+      repeatedItems.push(ele.keyword);
     }
-    console.log(repeatedItems);
   })
-
-  Horns.allHorns.forEach(idx => {
-    let options = $(`select`).append(`<option value = "${idx.keyword}">${idx.keyword}</option>`);
-
+  repeatedItems.forEach(val => {
+    $(`select`).append(`<option value = "${val}">${val}</option>`);
   })
+  console.log(repeatedItems);
 }
+
 
 
 
