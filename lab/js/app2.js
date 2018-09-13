@@ -5,7 +5,7 @@ function Horns(hornObject) {
   this.title = hornObject.title;
   this.description = hornObject.description;
   this.keyword = hornObject.keyword;
-  this.horns = hornObject.horn
+  this.horns = hornObject.horns
 }
 
 Horns.allHorns = [];
