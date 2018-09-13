@@ -83,12 +83,6 @@ $(`.sortalphabet`).on(`click`, function(){
 
 
 
-// const sortHorns = function() {
-//   Horns.allHorns.sort(on(a,b) {
-//     return a.horns-b.horns})
-// }
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Filter by Keyword
 

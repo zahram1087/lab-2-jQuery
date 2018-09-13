@@ -35,10 +35,9 @@ Horns.readJson = () => {
     }, 'json')
     .then(Horns.loadHorns)
     .then(dropdown)
-  // .then(Horns.dropdownFilter)
+
 
 }
-
 Horns.loadHorns = () => {
   Horns.allHorns.forEach(horn => $('#photo-template').append(horn.render( )));
 }
