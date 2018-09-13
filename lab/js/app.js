@@ -69,7 +69,7 @@ $(`.sortnumber`).on(`click`, function(){
 
 $(`.sortalphabet`).on(`click`, function(){
   Horns.allHorns.sort(function(a,b){
-    let titleA = a.title.toLowerCase() 
+    let titleA = a.title.toLowerCase()
     let titleB = b.title.toLowerCase()
     if (titleA < titleB){
       return -1}
