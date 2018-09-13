@@ -60,6 +60,28 @@ const dropdown = function () {
 }
 
 
+$(`.sortnumber`).on(`click`, function(){
+  Horns.allHorns.sort(function(a,b) {
+    return a.horns-b.horns})
+  $('#photo-template').html('');
+  Horns.allHorns.forEach(horn => $('#photo-template').append(horn.render()))
+});
+
+$(`.sortalphabet`).on(`click`, function(){
+  Horns.allHorns.sort(function(a,b){
+    let titleA = a.title.toLowerCase()
+    let titleB = b.title.toLowerCase()
+    if (titleA < titleB){
+      return -1}
+    if (titleA > titleB){
+      return 1}
+    return 0
+  })
+  $('#photo-template').html('');
+  Horns.allHorns.forEach(horn => $('#photo-template').append(horn.render()))
+});
+
+
 
 
 
