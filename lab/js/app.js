@@ -68,13 +68,8 @@ const dropdown = function () {
 
 $(`select[name = "keyword"]`).on('change', function () {
   let $selection = $(this).val();
-  $('img').hide();
-  $('p').hide();
-  $('h2').hide();
-  $(`img[keyword = "${$selection}"]`).show();
-  $(`h2[keyword = "${$selection}"]`).show();
-  $(`p[keyword = "${$selection}"]`).show();
-
+  $('div').hide();
+  $(`div[class = "${$selection}"]`).show();
 })
 
 
