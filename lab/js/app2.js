@@ -11,17 +11,17 @@ function Horns(hornObject) {
 Horns.allHorns = [];
 
 Horns.prototype.render = function () {
- //1. get the HTML from the template
+  //1. get the HTML from the template
 
- const $source = $('#horn-template').html();
+  const $source = $('#horn-template').html();
 
- // compile the source with Handlbar
+  // compile the source with Handlbar
 
- const compiledSource = Handlebars.compile($source);
+  const compiledSource = Handlebars.compile($source);
 
- // Return the HTML from the compiled method
+  // Return the HTML from the compiled method
 
- return compiledSource(this);
+  return compiledSource(this);
 
 }
 
@@ -62,18 +62,14 @@ const dropdown = function () {
 
 
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Filter by Keyword
 
 $(`select[name = "keyword"]`).on('change', function () {
   let $selection = $(this).val();
-  $('img').hide();
-  $('p').hide();
-  $('h2').hide();
-  $(`img[keyword = "${$selection}"]`).show();
-  $(`h2[keyword = "${$selection}"]`).show();
-  $(`p[keyword = "${$selection}"]`).show();
-
+  $('div').hide();
+  $(`div[class = "${$selection}"]`).show();
 })
 
 
