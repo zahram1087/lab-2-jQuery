@@ -40,7 +40,7 @@ Horns.readJson = () => {
 }
 
 Horns.loadHorns = () => {
-  Horns.allHorns.forEach(horn => $('#photo-template').append(horn.render( )));
+  Horns.allHorns.forEach(horn => horn.render());
 }
 
 
