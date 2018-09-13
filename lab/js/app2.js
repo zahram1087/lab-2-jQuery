@@ -35,7 +35,7 @@ Horns.readJson = () => {
     }, 'json')
     .then(Horns.loadHorns)
     .then(dropdown)
-  // .then(Horns.dropdownFilter)
+
 
 }
 
