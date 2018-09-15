@@ -1,7 +1,7 @@
 #photo-template div {
   /* float:left; */
   margin:30px;
-  border:3px dotted black;
+  border:3px solid black;
   display:table;
   width:300px;
   transition-duration:2s;
@@ -26,7 +26,7 @@ p {
 } */
 
 main{
-  width: 960px;
+  width: 1200px;
   margin: 0 auto;
 }
 #photo-template{
@@ -40,4 +40,17 @@ main{
   width:450px;
   height:450px;
   transition-duration: 1s;
+}
+
+h1{
+  color: steelblue;
+  font-size: 90px;
+}
+button{
+ display: flex;
+ justify-content: center;
+ flex-wrap: wrap;
+}
+#hovertoggle:hover{
+  background-color: yellow;
 }
